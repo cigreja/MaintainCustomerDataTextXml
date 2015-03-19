@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Maintain customer data (text or XML file):jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Maintain_customer_data__text_or_XML_file__jar</output-path>
+    <root id="archive" name="Maintain customer data (text or XML file).jar">
+      <element id="module-output" name="Maintain customer data (text or XML file)" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_maintain_customer_data_(text_or_xml_file)" default="compile.module.maintain_customer_data_(text_or_xml_file)">
+  <dirname property="module.maintain_customer_data_(text_or_xml_file).basedir" file="${ant.file.module_maintain_customer_data_(text_or_xml_file)}"/>
+  
+  <property name="module.jdk.home.maintain_customer_data_(text_or_xml_file)" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.maintain_customer_data_(text_or_xml_file)" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.maintain_customer_data_(text_or_xml_file)" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.maintain_customer_data_(text_or_xml_file)" value="-encoding UTF-8 -source 8 ${compiler.args}"/>
+  
+  <property name="maintain_customer_data_(text_or_xml_file).output.dir" value="${module.maintain_customer_data_(text_or_xml_file).basedir}/out/production/Maintain customer data (text or XML file)"/>
+  <property name="maintain_customer_data_(text_or_xml_file).testoutput.dir" value="${module.maintain_customer_data_(text_or_xml_file).basedir}/out/test/Maintain customer data (text or XML file)"/>
+  
+  <path id="maintain_customer_data_(text_or_xml_file).module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="maintain_customer_data_(text_or_xml_file).module.production.classpath">
+    <path refid="${module.jdk.classpath.maintain_customer_data_(text_or_xml_file)}"/>
+  </path>
+  
+  <path id="maintain_customer_data_(text_or_xml_file).runtime.production.module.classpath">
+    <pathelement location="${maintain_customer_data_(text_or_xml_file).output.dir}"/>
+  </path>
+  
+  <path id="maintain_customer_data_(text_or_xml_file).module.classpath">
+    <path refid="${module.jdk.classpath.maintain_customer_data_(text_or_xml_file)}"/>
+    <pathelement location="${maintain_customer_data_(text_or_xml_file).output.dir}"/>
+  </path>
+  
+  <path id="maintain_customer_data_(text_or_xml_file).runtime.module.classpath">
+    <pathelement location="${maintain_customer_data_(text_or_xml_file).testoutput.dir}"/>
+    <pathelement location="${maintain_customer_data_(text_or_xml_file).output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.maintain_customer_data_(text_or_xml_file)">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.maintain_customer_data_(text_or_xml_file)">
+    <patternset refid="excluded.from.module.maintain_customer_data_(text_or_xml_file)"/>
+  </patternset>
+  
+  <path id="maintain_customer_data_(text_or_xml_file).module.sourcepath">
+    <dirset dir="${module.maintain_customer_data_(text_or_xml_file).basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.maintain_customer_data_(text_or_xml_file)" depends="compile.module.maintain_customer_data_(text_or_xml_file).production,compile.module.maintain_customer_data_(text_or_xml_file).tests" description="Compile module Maintain customer data (text or XML file)"/>
+  
+  <target name="compile.module.maintain_customer_data_(text_or_xml_file).production" depends="register.custom.compilers" description="Compile module Maintain customer data (text or XML file); production classes">
+    <mkdir dir="${maintain_customer_data_(text_or_xml_file).output.dir}"/>
+    <javac2 destdir="${maintain_customer_data_(text_or_xml_file).output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.maintain_customer_data_(text_or_xml_file)}/javac">
+      <compilerarg line="${compiler.args.maintain_customer_data_(text_or_xml_file)}"/>
+      <bootclasspath refid="maintain_customer_data_(text_or_xml_file).module.bootclasspath"/>
+      <classpath refid="maintain_customer_data_(text_or_xml_file).module.production.classpath"/>
+      <src refid="maintain_customer_data_(text_or_xml_file).module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.maintain_customer_data_(text_or_xml_file)"/>
+    </javac2>
+    
+    <copy todir="${maintain_customer_data_(text_or_xml_file).output.dir}">
+      <fileset dir="${module.maintain_customer_data_(text_or_xml_file).basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.maintain_customer_data_(text_or_xml_file).tests" depends="register.custom.compilers,compile.module.maintain_customer_data_(text_or_xml_file).production" description="compile module Maintain customer data (text or XML file); test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.maintain_customer_data_(text_or_xml_file)" description="cleanup module">
+    <delete dir="${maintain_customer_data_(text_or_xml_file).output.dir}"/>
+    <delete dir="${maintain_customer_data_(text_or_xml_file).testoutput.dir}"/>
+  </target>
+</project>

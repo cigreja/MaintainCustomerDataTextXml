@@ -1,0 +1,3 @@
+Joe	Fritts	jtfritts@comcast.net
+Fred	Flinstone	fred@quarry.com
+Henry	Jones	iJones@marshallCollege.edu
