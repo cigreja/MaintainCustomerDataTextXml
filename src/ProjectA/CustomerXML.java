@@ -16,7 +16,7 @@ import javax.xml.stream.*;  // StAX API
 public class CustomerXML implements CustomerConstants
 {
     //this actually takes a String filePath 
-    private static String customersFilename = "src/files/customers.xml";
+    private static String customersFilename = "/files/customers.xml";
 
     // read customer data from xml file
     public static ArrayList<Customer> readCustomers()
@@ -27,8 +27,10 @@ public class CustomerXML implements CustomerConstants
         // create an XMLInputFactory object
         XMLInputFactory inputFactory = XMLInputFactory.newFactory();
         try{
+            InputStream is = CustomerXML.class.getResourceAsStream(customersFilename);
             // create an XMLStreamReader object
-            FileReader fileReader = new FileReader(customersFilename);
+            //FileReader fileReader = new FileReader(customersFilename);
+            InputStreamReader fileReader = new InputStreamReader(is);
             XMLStreamReader reader = inputFactory.createXMLStreamReader(fileReader);
             
             //Read XML here
@@ -64,7 +66,7 @@ public class CustomerXML implements CustomerConstants
                 }
                 reader.next();
             }
-        }catch(IOException | XMLStreamException e){
+        }catch(XMLStreamException e){
             System.out.println(e);
         }
         return customers;

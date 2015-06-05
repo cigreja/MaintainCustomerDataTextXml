@@ -4,15 +4,19 @@ package ProjectA;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Implements the methods specified by the CustomerDAO interface. 
@@ -26,6 +30,7 @@ public final class CustomerTextFile implements CustomerDAO {
     private ArrayList<Customer> customers = null;
     private Path customersPath = null;
     private File customersFile = null;
+    //private FileOutputStream fos;
 
     private final String FIELD_SEP = "\t";
 
@@ -36,6 +41,8 @@ public final class CustomerTextFile implements CustomerDAO {
         customersPath = Paths.get("./customers.txt");
         customersFile = customersPath.toFile();
         customers = this.getCustomers();
+        
+        
     }
 
     public ArrayList<Customer> getCustomers()
@@ -50,6 +57,8 @@ public final class CustomerTextFile implements CustomerDAO {
         {
             try
             {
+                //File file = new File(CustomerTextFile.class.getResource("/files/customer.txt").toURI());
+                //fos = new FileOutputStream(file);
                 // open the input stream
                 BufferedReader in = 
                      new BufferedReader(
@@ -80,7 +89,7 @@ public final class CustomerTextFile implements CustomerDAO {
             {
                 printToLogFile(e);
                 return null;
-            }
+            } 
         }
         return customers;            
     }
