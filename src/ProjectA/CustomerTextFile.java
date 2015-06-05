@@ -31,7 +31,9 @@ public final class CustomerTextFile implements CustomerDAO {
 
     public CustomerTextFile()
     {
-        customersPath = Paths.get("customers.txt");
+        //customersPath = Paths.get("customers.txt");
+        //customersPath = Paths.get("src/files","customers.txt");
+        customersPath = Paths.get("./customers.txt");
         customersFile = customersPath.toFile();
         customers = this.getCustomers();
     }

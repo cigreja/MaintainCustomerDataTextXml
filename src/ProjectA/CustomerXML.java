@@ -15,7 +15,8 @@ import javax.xml.stream.*;  // StAX API
  */
 public class CustomerXML implements CustomerConstants
 {
-    private static String customersFilename = "customers.xml";
+    //this actually takes a String filePath 
+    private static String customersFilename = "src/files/customers.xml";
 
     // read customer data from xml file
     public static ArrayList<Customer> readCustomers()
