@@ -34,15 +34,17 @@ public final class CustomerTextFile implements CustomerDAO {
 
     private final String FIELD_SEP = "\t";
 
-    public CustomerTextFile()
+    public CustomerTextFile() throws IOException
     {
         //customersPath = Paths.get("customers.txt");
         //customersPath = Paths.get("src/files","customers.txt");
+        //File JarPath = new JarPath().getFolder();
+        //customersPath = Paths.get(JarPath.toString(),"customers.txt");
         customersPath = Paths.get("./customers.txt");
         customersFile = customersPath.toFile();
+        System.out.println(customersFile); // test debug
+        
         customers = this.getCustomers();
-        
-        
     }
 
     public ArrayList<Customer> getCustomers()
